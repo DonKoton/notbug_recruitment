@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>
+        <p>Username<input type="text" name="username" placeholder="username"></p>
+        </div>
+
+        <div>
+        <p>Password<input type="password" name="password" placeholder="password"</p>
+        </div>
+        <input type="submit" value="Log in">
+    </form>
+
+    <p>Don't have an account?</p>
+    <a href="{% url 'blog:register' %}"><button>Sign up</button></a>
+</body>
+</html>

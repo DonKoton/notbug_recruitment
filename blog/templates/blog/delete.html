@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h3>Delete post no.: {{ post.pk }}</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <strong>Are you sure?</strong>
+            <button>Delete post!</button>
+        </form>
+    {% else %}
+    You're not allowed here!
+    {% endif %}
+
+</body>
+</html>

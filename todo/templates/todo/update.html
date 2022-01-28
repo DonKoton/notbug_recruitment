@@ -1,0 +1,12 @@
+{% block title %}
+Todo update
+{% endblock %}
+
+{% block body %}
+<h3>Modify todo no.: {{ todo.id }}</h3>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="todo" value="{{ todo.text }}">
+    <input type="submit" value="Update">
+</form>
+{% endblock %}

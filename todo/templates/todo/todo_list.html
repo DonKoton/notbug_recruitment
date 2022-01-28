@@ -1,0 +1,20 @@
+{% block title %}
+Todo list
+{% endblock %}
+
+{% block body %}
+<a href="{% url 'todo:register' %}"><button>Add todo</button></a>
+<ul>
+    {% for todo in todos %}
+        <li>
+            <p style="display: inline">{{ todo.text }}</p>
+            <a href="{% url 'todo:update' todo.id %}"><button>Update</button></a>
+            <form action="{% url 'todo:delete' todo.id %}" method="post" style="display: inline">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+        <br>
+    {% endfor %}
+</ul>
+{% endblock %}
