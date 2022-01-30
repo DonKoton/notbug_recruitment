@@ -20,7 +20,6 @@ def register(request):
     return render(
         request,
         'todo/register.html',
-
     )
 
 
@@ -30,7 +29,7 @@ def todos_list(request):
 
     return render(
         request,
-        'todo/todo_list.html',
+        'todo/cars_list.html',
         context={
             'todos': todos
         }

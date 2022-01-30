@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details for pokemon</title>
+</head>
+<body>
+        <p>Name: {{ poke_details.name }}</p>
+        <p>Abilities:
+        <ul>
+            {% for i in poke_details.abilities %}
+            <li>{{ i.ability.name }}</li>
+            {% endfor %}
+        </ul>
+        </p>
+        <p>Height: {{ poke_details.height }}</p>
+        <p>Weight: {{ poke_details.weight }}</p>
+        <p>Moves:
+        <ul>
+            {% for i in poke_details.moves %}
+            <li>{{ i.move.name }}</li>
+            {% endfor %}
+        </ul>
+        </p>
+        <p>Types:
+        <ul>
+            {% for i in poke_details.types %}
+                <li>{{ i.type.name }}</li>
+            {% endfor %}
+        </ul>
+        </p>
+</body>
+</html>

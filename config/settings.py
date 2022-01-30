@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todo',
     'blog',
+    'cars',
+    'pokedex',
+
 ]
 
 MIDDLEWARE = [

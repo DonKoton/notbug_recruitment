@@ -1,0 +1,24 @@
+{% block title %}
+Car list
+{% endblock %}
+
+{% block body %}
+<h1>Welcome to django garage</h1>
+<p><a href="{% url 'cars:store_car' %}"><button>Store a car</button></a></p>
+<ul>
+    {% for car in object_list %}
+        <li>
+            <p style="display: inline">{{ car.owner }}'s car -
+                {{ car.brand }} {{ car.model }} from {{ car.prod_year }}</p>
+
+            <a href="{% url 'cars:car_detail' car.pk %}"><button>Details</button></a>
+            <a href="{% url 'cars:update' car.pk %}"><button>Edit</button></a>
+            <form action="{% url 'cars:delete' car.pk %}" method="post" style="display: inline">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+        <br>
+    {% endfor %}
+</ul>
+{% endblock %}

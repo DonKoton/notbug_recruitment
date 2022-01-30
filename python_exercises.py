@@ -16,8 +16,8 @@ users2 = [{"name": "Kamil", "country": "Poland"},
           {"name": "Lorenzo", "country": "Italy"},
           {"name": "Antoine", "country": "France"},
           ]
-# example with more users to show
 
+# example with more users to show
 new_users2 = [user.get("name") for user in users2 if user.get("country") == "Poland"]
 
 print(new_users)

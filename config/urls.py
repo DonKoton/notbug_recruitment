@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', include('todo.urls')),
     path('blog/', include('blog.urls')),
+    path('cars/', include('cars.urls')),
+    path('pokedex/', include('pokedex.urls')),
 ]
