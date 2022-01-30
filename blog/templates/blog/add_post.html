@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add post</title>
-</head>
-<body>
-    <h1>Add post</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <a href="{% url 'blog:home' %}"><button>Post</button></a>
+{% extends "blog/layout.html" %}
 
-    </form>
-</body>
-</html>
+{% block title %}
+Add post
+{% endblock %}
+
+{% block body %}
+<h1>Add post</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'blog:home' %}"><button>Post</button></a>
+
+</form>
+{% endblock %}

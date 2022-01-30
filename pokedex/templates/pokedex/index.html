@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pokemon list</title>
-</head>
-<body>
+{% extends "pokedex/layout.html" %}
+
+{% block title %}
+Pokemon list
+{% endblock %}
+
+{% block body %}
 <ul>
     {% for pokemon in pokemons %}
     <li>{{ pokemon.name }} ----- <a href="{% url 'pokedex:details' forloop.counter %}">Click for details!</a></li>
     {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}

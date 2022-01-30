@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Details</title>
-</head>
-<body>
-    <h1>{{ car.owner }}'s car</h1>
-    <h2>{{ car.brand }} {{ car.model }} produced in {{ car.prod_year }}</h2>
+{% extends "cars/layout.html" %}
 
-    <h3>Add information about services:</h3>
-    <a href="{% url 'cars:add_part' car.pk %}"><button style="display: inline;">Add part</button></a>
-    <br><br>
-    <a href="{% url 'cars:update' car.pk %}"><button style="display: inline;">Edit</button></a>
-    <a href="{% url 'cars:delete' car.pk %}"><button style="display: inline;">Delete</button></a>
+{% block title %}
+Details
+{% endblock %}
 
-    {% for part in parts %}
-    <h3>Service log - {{ part.date_of_service }}</h3>
-    <p>{{ part.name }} made by {{ part.producer }} (s/n {{ part.part_number }}) - price {{ part.price }}
-        - mileage {{ part.mileage }}</p>
-    {% endfor %}
+{% block body %}
+<h1>{{ car.owner }}'s car</h1>
+<h2>{{ car.brand }} {{ car.model }} produced in {{ car.prod_year }}</h2>
 
-    <a href="{% url 'cars:cars_list' %}"><button>Back</button></a>
-</body>
-</html>
+<h3>Add information about services:</h3>
+<a href="{% url 'cars:add_part' car.pk %}"><button style="display: inline;">Add part</button></a>
+<br><br>
+<a href="{% url 'cars:update' car.pk %}"><button style="display: inline;">Edit</button></a>
+<a href="{% url 'cars:delete' car.pk %}"><button style="display: inline;">Delete</button></a>
+
+{% for part in parts %}
+<h3>Service log - {{ part.date_of_service }}</h3>
+<p>{{ part.name }} made by {{ part.producer }} (s/n {{ part.part_number }}) - price {{ part.price }}
+    - mileage {{ part.mileage }}</p>
+{% endfor %}
+
+<a href="{% url 'cars:cars_list' %}"><button>Back</button></a>
+{% endblock %}

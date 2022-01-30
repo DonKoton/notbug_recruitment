@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Store car</title>
-</head>
-<body>
-    <h1>Store car</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <a href="{% url 'cars:cars_list' %}"><button>Store car</button></a>
+{% extends "cars/layout.html" %}
 
-    </form>
-</body>
-</html>
+{% block title %}
+Store car
+{% endblock %}
+
+{% block body %}
+<h1>Store car</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'cars:cars_list' %}"><button>Store car</button></a>
+
+</form>
+{% endblock %}

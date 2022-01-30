@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Details</title>
-</head>
-<body>
-    <h1>{{ post.title }}</h1>
-    <small>By: {{ post.author }}</small>
-    <br>
-    {{ post.body|safe }}
-    <a href="{% url 'blog:update' post.pk %}"><button style="display: inline;">Edit</button></a>
-    <a href="{% url 'blog:delete' post.pk %}"><button style="display: inline;">Delete</button></a>
+{% extends "blog/layout.html" %}
 
-    <a href="{% url 'blog:home' %}"><button>Back</button></a>
-</body>
-</html>
+{% block title %}
+Details
+{% endblock %}
+
+{% block body %}
+<h1>{{ post.title }}</h1>
+<small>By: {{ post.author }}</small>
+<br>
+{{ post.body|safe }}
+<a href="{% url 'blog:update' post.pk %}"><button style="display: inline;">Edit</button></a>
+<a href="{% url 'blog:delete' post.pk %}"><button style="display: inline;">Delete</button></a>
+
+<a href="{% url 'blog:home' %}"><button>Back</button></a>
+{% endblock %}
