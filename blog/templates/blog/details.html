@@ -1,16 +1,20 @@
 {% extends "blog/layout.html" %}
 
 {% block title %}
-Details
+{{ post.title }}
 {% endblock %}
 
 {% block body %}
-<h1>{{ post.title }}</h1>
-<small>By: {{ post.author }}</small>
-<br>
-{{ post.body|safe }}
-<a href="{% url 'blog:update' post.pk %}"><button style="display: inline;">Edit</button></a>
-<a href="{% url 'blog:delete' post.pk %}"><button style="display: inline;">Delete</button></a>
+<div class="container" style="text-align: justify">
+    <h1>{{ post.title }}</h1>
+    <div class="btn-group" style="position: absolute; left: 80%">
+        <a class="btn btn-primary" href="{% url 'blog:update' post.pk %}">Edit</a>
+        <a class="btn btn-primary" href="{% url 'blog:delete' post.pk %}">Delete</a>
+        <a class="btn btn-primary" href="{% url 'blog:home' %}">Back</a>
+    </div>
 
-<a href="{% url 'blog:home' %}"><button>Back</button></a>
+    <small>By: {{ post.author }}</small>
+    <br><br>
+    {{ post.body|safe }}
+</div>
 {% endblock %}

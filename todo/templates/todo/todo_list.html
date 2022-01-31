@@ -5,18 +5,25 @@ Todo list
 {% endblock %}
 
 {% block body %}
-<a href="{% url 'todo:register' %}"><button>Add todo</button></a>
-<ul>
-    {% for todo in todos %}
-        <li>
-            <p style="display: inline">{{ todo.text }}</p>
-            <a href="{% url 'todo:update' todo.id %}"><button>Update</button></a>
-            <form action="{% url 'todo:delete' todo.id %}" method="post" style="display: inline">
-                {% csrf_token %}
-                <input type="submit" value="Delete">
-            </form>
-        </li>
+<div style="display: flex; justify-content: center; align-items: center; padding-top: 100px; padding-left: 200px">
+    <a href="{% url 'todo:register' %}"><button class="btn btn-outline-secondary">Add todo</button></a>
+</div>
+
+<div class="container">
+    <ul>
+        {% for todo in todos %}
+            <li>
+                {{ todo.text }}
+                <a href="{% url 'todo:update' todo.id %}">
+                    <button class="btn btn-outline-secondary" style="display: inline">Edit</button></a>
+
+                <form action="{% url 'todo:delete' todo.id %}" style="display: inline;" method="post">
+                    {% csrf_token %}
+                    <input class="btn btn-outline-secondary" type="submit" value="Delete">
+                </form>
+            </li>
         <br>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

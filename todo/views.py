@@ -29,7 +29,7 @@ def todos_list(request):
 
     return render(
         request,
-        'todo/cars_list.html',
+        'todo/todo_list.html',
         context={
             'todos': todos
         }

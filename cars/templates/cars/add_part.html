@@ -5,11 +5,12 @@ Add part
 {% endblock %}
 
 {% block body %}
-<h1>Add part</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Add part" onclick="window.history.back()">
-
-</form>
+<h1 style="text-align: center; margin-top: 50px; margin-bottom: 20px">Add informations about service</h1>
+<div class="form-group" style="display: flex; justify-content: center; align-items: center">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-outline-success" type="submit" value="Add service" onclick="window.history.back()">
+    </form>
+</div>
 {% endblock %}

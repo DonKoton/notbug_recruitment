@@ -1,17 +1,27 @@
 {% extends "blog/layout.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}
 Update
 {% endblock %}
 
 {% block body %}
 {% if user.is_authenticated %}
-    <h3>Modify post no. {{ post.pk }}</h3>
-    <form method="POST">
+<div class="form-group">
+    <h3 style="text-align: center">Modify post no. {{ post.pk }}</h3>
+    <form id="updateform" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Update">
+        {{ form.title.label }}
+        <input type="text" class="form-control" name="title" id="title">
+        {{ form.body.label }}
+        <textarea type="text" class="form-control" form="updateform" name="body" id="body"></textarea>
+        <br>
+        <input class="btn btn-primary" style="display: inline" type="submit" value="Update">
+        <a class="btn btn-primary" href="{% url 'blog:details' post.pk %}">Back</a>
+
     </form>
+</div>
 {% else %}
 You're not allowed here!
 {% endif %}

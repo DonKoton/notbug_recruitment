@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 
 from cars.models import Car, Parts
-from cars.forms import PartsList
+from cars.forms import PartsList, CarForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 # Create your views here.
@@ -10,11 +10,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 class CarsList(ListView):
     model = Car
     template_name = 'cars/cars_list.html'
-
-
-    # nadpisywanie object_list
-    # def get_queryset(self):
-    #     return Car.objects.filter(...)
 
 
 class CarDetailView(DetailView):
@@ -30,7 +25,7 @@ class CarDetailView(DetailView):
 class StoreCarView(CreateView):
     model = Car
     template_name = 'cars/store_car.html'
-    fields = "__all__"
+    form_class = CarForm
 
 
 class AddPartView(CreateView):
@@ -47,7 +42,7 @@ class AddPartView(CreateView):
 class UpdateCarView(UpdateView):
     model = Car
     template_name = 'cars/update.html'
-    fields = ['brand', 'model', 'prod_year', 'owner']
+    form_class = CarForm
 
 
 class DeleteCarView(DeleteView):

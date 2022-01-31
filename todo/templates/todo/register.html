@@ -5,11 +5,13 @@ Todo register
 {% endblock %}
 
 {% block body %}
-<div>
+<h1 style="text-align: center; margin-top: 200px">Register To Do</h1>
+<div class="form-group" style="display: flex; justify-content: center; align-items: center; padding-top: 100px">
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="todo">
-        <input type="submit" value="Register">
+        <input class="form-control" style="width: 300px; margin: auto; display: block" type="text" name="todo">
+        <br>
+        <input class="btn btn-outline-secondary" style="display: block; margin: auto" type="submit" value="Register">
     </form>
 </div>
 {% endblock %}

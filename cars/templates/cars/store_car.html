@@ -5,11 +5,15 @@ Store car
 {% endblock %}
 
 {% block body %}
-<h1>Store car</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <a href="{% url 'cars:cars_list' %}"><button>Store car</button></a>
+<h1 style="text-align: center; margin-top: 50px; margin-bottom: 50px">Store a car</h1>
 
-</form>
+<div class="form-group" style="display: flex; justify-content: center; align-items: center">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a style="display: flex; justify-content: center; align-items: center" href="{% url 'cars:cars_list' %}">
+            <button class="btn btn-outline-success">Store car</button></a>
+    </form>
+
+</div>
 {% endblock %}

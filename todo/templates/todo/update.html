@@ -5,10 +5,19 @@ Todo update
 {% endblock %}
 
 {% block body %}
-<h3>Modify todo no.: {{ todo.id }}</h3>
-<form method="post">
-    {% csrf_token %}
-    <input type="text" name="todo" value="{{ todo.text }}">
-    <input type="submit" value="Update">
-</form>
+<h1 style="text-align: center; margin-top: 200px">Modify todo no.: {{ todo.id }}</h1>
+<br><br>
+<div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        <input class="form-control" style="width: 300px; margin: auto; display: block;"
+               type="text" name="todo" value="{{ todo.text }}">
+        <br>
+        <div style="display: flex; padding-left: 30%; padding-right: 30%; justify-content: space-evenly; align-items: center">
+            <input class="btn btn-outline-secondary" type="submit" value="Update">
+            <a href="{% url 'todo:todos_list' %}" >
+                <button class="btn btn-outline-secondary">Back</button></a>
+        </div>
+    </form>
+</div>
 {% endblock %}

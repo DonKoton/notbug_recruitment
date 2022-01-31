@@ -5,22 +5,24 @@ Car list
 {% endblock %}
 
 {% block body %}
-<h1>Welcome to django garage</h1>
-<p><a href="{% url 'cars:store_car' %}"><button>Store a car</button></a></p>
-<ul>
-    {% for car in object_list %}
-        <li>
-            <p style="display: inline">{{ car.owner }}'s car -
-                {{ car.brand }} {{ car.model }} from {{ car.prod_year }}</p>
+<div class="container">
+<h1 style="position: relative; margin-top: 50px; text-align: center; display: block">Welcome to django garage</h1>
+    <p style="margin-top: 50px; text-align: center; display: block"><a href="{% url 'cars:store_car' %}">
+        <button class="btn btn-outline-success">Store a car</button></a></p>
+</div>
 
-            <a href="{% url 'cars:car_detail' car.pk %}"><button>Details</button></a>
-            <a href="{% url 'cars:update' car.pk %}"><button>Edit</button></a>
-            <form action="{% url 'cars:delete' car.pk %}" method="post" style="display: inline">
-                {% csrf_token %}
-                <input type="submit" value="Delete">
-            </form>
-        </li>
-        <br>
-    {% endfor %}
-</ul>
+<div class="container">
+    <ul>
+        {% for car in object_list %}
+            <li>
+                <p style="display: inline">{{ car.owner }}'s car -
+                    {{ car.brand }} {{ car.model }} from {{ car.prod_year }}</p>
+
+                <a href="{% url 'cars:car_detail' car.pk %}">
+                    <button class="btn btn-outline-success">Details</button></a>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

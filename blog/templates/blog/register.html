@@ -5,27 +5,21 @@ Register
 {% endblock %}
 
 {% block body %}
-<form method="POST" action="">
-    {% csrf_token %}
-    <div>
-    <p>{{ form.username.label }} {{ form.username }}</p>
+<div>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            <p>{{ field.label }}</p>
+            <p>{{ field }}</p>
+            {% endfor %}
+            <input class="btn btn-outline-primary" type="submit" value="Create User">
+        </form>
+        <br>
     </div>
 
-    <div>
-    <p>{{ form.email.label }} {{ form.email }}</p>
-    </div>
-
-    <div>
-    <p>{{ form.password1.label }} {{ form.password1 }}</p>
-    </div>
-
-    <div>
-    <p>{{ form.password2.label }} {{ form.password2 }}</p>
-    </div>
-
-    <input type="submit" value="Create User">
-</form>
-
-<p>Already have an account?</p>
-<a href="{% url 'blog:login' %}"><button>Sign in</button></a>
+    <p>Already have an account?</p>
+    <a href="{% url 'blog:login' %}">
+        <button class="btn btn-outline-primary">Sign in</button></a>
+</div>
 {% endblock %}

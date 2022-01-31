@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <form method="POST" action="">
+{% extends 'blog/layout.html' %}
+
+{% block title %}
+Login page
+{% endblock %}
+
+{% block body %}
+<div class="form-group">
+    <br><br>
+    <form method="POST">
         {% csrf_token %}
-        <div>
-        <p>Username<input type="text" name="username" placeholder="username"></p>
-        </div>
-
-        <div>
-        <p>Password<input type="password" name="password" placeholder="password"</p>
-        </div>
-        <input type="submit" value="Log in">
+        <p>{{ form.username.label }}</p>
+        <input class="form-control" type="text" id="username" name="username"  placeholder="username">
+        <p>{{ form.password.label }}</p>
+        <input class="form-control" type="password" name="password" id="password" placeholder="password">
+        <br>
+        <input class="btn btn-outline-primary" type="submit" value="Log in">
     </form>
+    <br>
 
-    <p>Don't have an account?</p>
-    <a href="{% url 'blog:register' %}"><button>Sign up</button></a>
-</body>
-</html>
+        <p>Don't have an account?</p>
+        <a href="{% url 'blog:register' %}">
+            <button class="btn btn-outline-primary">Sign up</button></a>
+</div>
+{% endblock %}

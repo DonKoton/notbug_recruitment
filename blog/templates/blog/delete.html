@@ -5,14 +5,17 @@ Delete
 {% endblock %}
 
 {% block body %}
+<div>
 {% if user.is_authenticated %}
     <h3>Delete post no.: {{ post.pk }}</h3>
     <form method="POST">
         {% csrf_token %}
         <strong>Are you sure?</strong>
-        <button>Delete post!</button>
+        <button class="btn btn-outline-primary" style="display: inline;">Delete post!</button>
+        <a class="btn btn-outline-primary" href="{% url 'blog:details' post.pk %} " style="display: inline;">Back</a>
     </form>
 {% else %}
 You're not allowed here!
 {% endif %}
+</div>
 {% endblock %}

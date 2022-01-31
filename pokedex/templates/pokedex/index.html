@@ -1,13 +1,23 @@
 {% extends "pokedex/layout.html" %}
 
+{% load static %}
+
 {% block title %}
 Pokemon list
 {% endblock %}
 
 {% block body %}
-<ul>
-    {% for pokemon in pokemons %}
-    <li>{{ pokemon.name }} ----- <a href="{% url 'pokedex:details' forloop.counter %}">Click for details!</a></li>
-    {% endfor %}
-</ul>
+<img src="{% static 'pokedex/images/bubble.png' %}" style="position: fixed; left: 30%">
+<p style="text-align: center; font-size: 22px; position: fixed; left: 35%; top: 18%">Hey!
+    <br>Click on the highlighted link<br> to see details on specific Pokemon!<br>Pika pika!</p>
+
+<div style="height: 200px"></div>
+<div class="container">
+    <ul>
+        {% for pokemon in pokemons %}
+        <li style="margin-bottom: 15px">{{ pokemon.name }} -----
+            <a href="{% url 'pokedex:details' forloop.counter %}">Click for details!</a></li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
